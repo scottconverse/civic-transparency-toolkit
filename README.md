@@ -45,7 +45,7 @@ python main.py
 
 When you open the app for the first time:
 
-1. **Click "Settings"** in the sidebar. Paste in your Claude API key (it starts with `sk-ant-`). The app will explain model choices — Sonnet is the default and works great for most people.
+1. **Click "Settings"** in the sidebar. Paste in your Claude API key (it starts with `sk-ant-`). The app will explain model choices — Haiku is the default and works great for most people.
 
 2. **Click "City Configuration"** and fill in your city name, state, and open records law (for Colorado, that's CORA). Add your main source URLs here — city website, agenda portal, school district, local newspaper.
 
@@ -163,11 +163,11 @@ The toolkit lets you choose which Claude AI model to use. Here's what matters:
 
 | Model | Speed | Cost | Best For |
 |-------|-------|------|----------|
-| Sonnet | Fast | ~$0.10/run | Default for most people |
-| Haiku | Fastest | ~$0.03/run | Research steps (saves money) |
-| Opus | Thorough | ~$0.50/run | When you want the best analysis |
+| Haiku | Fast | ~$0.03/run | Default — great balance of speed and cost |
+| Sonnet | Thorough | ~$0.10/run | When you want deeper analysis |
+| Opus | Most capable | ~$0.50/run | When you want the best possible output |
 
-**Tip:** Set your main model to Sonnet and your Research Model to Haiku. This gives you good quality writing at the lowest cost. A full daily run with this setup costs about $0.05-$0.15.
+**Tip:** Haiku is the default and handles most civic reporting well. If you want to upgrade specific runs, try Sonnet — it's more thorough but costs more. A full daily run on Haiku costs about $0.03-$0.10.
 
 You can set a monthly spending limit at [console.anthropic.com](https://console.anthropic.com) under Billing. We recommend starting with $10/month to see how it goes.
 
