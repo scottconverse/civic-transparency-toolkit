@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Civic Transparency Toolkit — Desktop App for AI-Powered Civic Reporting</title>
-    <meta name="description" content="Free, open-source desktop app that turns your city's public records into stories you can share with your neighbors. Nine-agent editorial pipeline with built-in fact-checking.">
+    <title>Civic Transparency Toolkit — Free Desktop App for Civic Records Workflow</title>
+    <meta name="description" content="A free desktop app for running a structured civic-records workflow with AI assistance.">
     <meta property="og:title" content="Civic Transparency Toolkit">
-    <meta property="og:description" content="A free desktop app that reads your city's public records and writes them up as stories you can share. Built-in fact-checking, source management, and one-click export.">
+    <meta property="og:description" content="A free desktop app for running a structured civic-records workflow with AI assistance.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://scottconverse.github.io/civic-transparency-toolkit">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,6 +76,35 @@
             margin: 0 auto;
         }
 
+        /* --- STICKY NAV --- */
+        nav.sticky-nav {
+            position: sticky;
+            top: 0;
+            background: var(--paper);
+            border-bottom: 1px solid var(--rule);
+            padding: 1rem 0;
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .sticky-nav .container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .sticky-nav a {
+            color: var(--ink);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .sticky-nav a:hover {
+            color: var(--accent);
+        }
+
         /* --- HERO --- */
         .hero {
             padding: 3rem 0;
@@ -90,6 +119,17 @@
 
         .hero-text p + p {
             margin-top: 1.2rem;
+        }
+
+        .trust-note {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--ink);
+            line-height: 1.6;
         }
 
         .hero-cta {
@@ -123,33 +163,63 @@
         }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* --- STATS --- */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            padding: 1.8rem 0;
+        /* --- VALUE PROPS STRIP --- */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
             border-bottom: 1px solid var(--rule);
-            flex-wrap: wrap;
         }
 
-        .stat {
+        .value-prop {
+            position: relative;
+            padding-left: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--ink);
+        }
+
+        .value-prop::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* --- WORKFLOW DIAGRAM --- */
+        .workflow-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--rule);
+            overflow-x: auto;
+        }
+
+        .diagram-step {
+            flex: 1;
             text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0 0.5rem;
+            white-space: nowrap;
         }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
+        .diagram-step::after {
+            content: '→';
+            display: block;
+            font-size: 1.2rem;
             color: var(--accent);
-            line-height: 1.2;
+            margin: 0.5rem 0;
         }
 
-        .stat-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--muted);
+        .diagram-step:last-child::after {
+            content: '';
         }
 
         /* --- SECTIONS --- */
@@ -212,6 +282,49 @@
             line-height: 1.6;
         }
 
+        /* --- DETAILS/SUMMARY --- */
+        details {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--rule);
+            border-radius: 6px;
+            background: var(--card-bg);
+        }
+
+        summary {
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.15s ease;
+        }
+
+        summary:hover {
+            color: var(--accent);
+        }
+
+        details[open] summary {
+            margin-bottom: 1rem;
+        }
+
+        .advanced-modes-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .advanced-modes-list li {
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .advanced-modes-list li::before {
+            content: '◦ ';
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
         /* --- LANES --- */
         .lane {
             margin-bottom: 2rem;
@@ -229,14 +342,6 @@
             font-size: 1rem;
             color: var(--muted);
             line-height: 1.7;
-        }
-
-        .lane .steps-inline {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 0.25rem;
         }
 
         /* --- QUICKSTART --- */
@@ -272,68 +377,157 @@
             justify-content: center;
         }
 
-        /* --- COMPARE BOX --- */
-        .compare-box {
-            background: var(--accent-light);
-            border-radius: 10px;
-            padding: 2rem 2.5rem;
-            margin-top: 1.5rem;
+        /* --- COMPARISON CARDS --- */
+        .compare-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .compare-box h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.75rem;
+        .compare-card {
+            background: var(--card-bg);
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
         }
 
-        .compare-table {
-            width: 100%;
-            border-collapse: collapse;
+        .compare-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--ink);
+        }
+
+        .compare-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .compare-card li {
+            padding: 0.6rem 0;
             font-size: 0.95rem;
-        }
-
-        .compare-table th {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
             color: var(--muted);
-            text-align: left;
-            padding: 0.5rem 0.75rem;
+            line-height: 1.6;
             border-bottom: 1px solid var(--rule);
         }
 
-        .compare-table td {
-            padding: 0.6rem 0.75rem;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-            vertical-align: top;
-        }
-
-        .compare-table tr:last-child td {
+        .compare-card li:last-child {
             border-bottom: none;
         }
 
-        /* --- AUDIENCE --- */
-        .audience-grid {
+        .compare-card li::before {
+            content: '◦ ';
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .compare-footer {
+            background: var(--accent-light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .compare-footer h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .compare-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .compare-footer li {
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .compare-footer li::before {
+            content: '◦ ';
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        /* --- REQUIREMENTS SECTION --- */
+        .requirements-list {
+            list-style: none;
+            padding: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
         }
 
-        .audience-item {
-            background: var(--accent-light);
-            border-radius: 8px;
-            padding: 1.25rem;
+        .requirements-list li {
+            background: var(--card-bg);
+            border: 1px solid var(--rule);
+            border-radius: 6px;
+            padding: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
-        .audience-item strong {
-            display: block;
-            margin-bottom: 0.25rem;
+        .requirements-list li::before {
+            content: '✓ ';
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.5rem;
         }
 
-        .audience-item p {
-            font-size: 0.92rem;
+        .not-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .not-list li {
+            padding-left: 1.75rem;
+            margin-bottom: 0.85rem;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.6;
             color: var(--muted);
-            line-height: 1.5;
+        }
+
+        .not-list li::before {
+            content: "−";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* --- SCREENSHOT PLACEHOLDERS --- */
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .screenshot-item {
+            text-align: center;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .screenshot-caption {
+            display: block;
+            margin-top: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         /* --- FOOTER --- */
@@ -358,6 +552,14 @@
             text-decoration: underline;
         }
 
+        .footer-trust {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
         .footer-license {
             font-family: 'Inter', sans-serif;
             font-size: 0.75rem;
@@ -369,11 +571,16 @@
 
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
-            .stats { gap: 1.5rem; }
+            .sticky-nav .container { gap: 1rem; flex-direction: column; }
             .hero-cta { flex-direction: column; }
-            .btn { text-align: center; }
+            .btn { text-align: center; width: 100%; }
             .feature-grid { grid-template-columns: 1fr; }
-            .compare-box { padding: 1.25rem; }
+            .value-props { grid-template-columns: 1fr; }
+            .workflow-diagram { flex-direction: column; }
+            .diagram-step::after { content: '↓'; }
+            .compare-cards { grid-template-columns: 1fr; }
+            .requirements-list { grid-template-columns: 1fr; }
+            .screenshots { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -383,116 +590,193 @@
     <div class="container">
         <div class="masthead">Open Source &middot; MIT License &middot; Windows / Mac / Linux</div>
         <h1>Civic Transparency Toolkit</h1>
-        <p class="subtitle">A free desktop app that turns your city's public records into stories you can share with your neighbors</p>
+        <p class="subtitle">A free desktop app for running a structured civic-records workflow with AI assistance</p>
     </div>
 </header>
 
-<section class="hero">
+<nav class="sticky-nav">
+    <div class="container">
+        <a href="#how-it-works">How it works</a>
+        <a href="#workflow">App workflow</a>
+        <a href="#protections">Workflow protections</a>
+        <a href="#compare">Compare versions</a>
+        <a href="#setup">Get started</a>
+        <a href="#limits">Limits</a>
+    </div>
+</nav>
+
+<section class="hero" id="how-it-works">
     <div class="container">
         <div class="hero-text">
             <p>Since 2005, more than 2,500 U.S. newspapers have closed. City councils still meet. Budgets still get passed. Contracts still get awarded. But in most communities, nobody is reading any of it.</p>
-            <p>The Civic Transparency Toolkit is a desktop app that watches your city's public websites, finds the stories that matter, fact-checks them, and writes them up as plain-English articles you can share. One click to run. One click to export. Built-in safeguards against hallucination, plagiarism, and one-sided analysis.</p>
+            <p>The Toolkit helps a human operator collect public-record sources, run a multi-step review pipeline, organize findings, and export draft civic reporting. It is the desktop version of the Civic Newsroom prompt workflow.</p>
+        </div>
+        <div class="trust-note">
+            <strong>Human review required.</strong> The app assists with source handling, workflow execution, and drafting. It does not independently certify facts or produce publish-ready reporting.
         </div>
         <div class="hero-cta">
-            <a href="https://github.com/scottconverse/civic-transparency-toolkit/releases" class="btn btn-primary">Download the App</a>
+            <a href="#workflow" class="btn btn-primary">See the App Workflow</a>
+            <a href="https://github.com/scottconverse/civic-transparency-toolkit/releases" class="btn btn-secondary">Download the App</a>
             <a href="https://github.com/scottconverse/civic-transparency-toolkit" class="btn btn-secondary">View Source on GitHub</a>
+            <a href="#compare" class="btn btn-secondary">Compare App vs Prompt Version</a>
         </div>
     </div>
 </section>
 
-<div class="stats">
-    <div class="stat">
-        <div class="stat-number">9</div>
-        <div class="stat-label">AI Agents</div>
-    </div>
-    <div class="stat">
-        <div class="stat-number">6</div>
-        <div class="stat-label">Pipeline Lanes</div>
-    </div>
-    <div class="stat">
-        <div class="stat-number">~$0.10</div>
-        <div class="stat-label">Per Daily Run</div>
-    </div>
-    <div class="stat">
-        <div class="stat-number">5 min</div>
-        <div class="stat-label">Setup Time</div>
+<div class="value-props">
+    <div class="container wide-container" style="grid-column: 1 / -1;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; width: 100%;">
+            <div class="value-prop">Guided desktop workflow</div>
+            <div class="value-prop">Source management and exports</div>
+            <div class="value-prop">Runs the same core prompt system</div>
+            <div class="value-prop">Local app for Windows / Mac / Linux</div>
+        </div>
     </div>
 </div>
 
-<section class="section">
+<div class="workflow-diagram">
+    <div class="container wide-container" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem;">
+        <div class="diagram-step">Public records</div>
+        <div class="diagram-step">Detect</div>
+        <div class="diagram-step">Verify</div>
+        <div class="diagram-step">Draft</div>
+        <div class="diagram-step">Human review</div>
+        <div class="diagram-step" style="margin-right: 0;">Share or publish</div>
+    </div>
+</div>
+
+<section class="section" id="workflow">
     <div class="wide-container">
-        <h2>What It Does</h2>
-        <p class="section-intro">Six pipeline lanes, each designed for a different part of civic reporting.</p>
+        <h2>What the App Helps You Do</h2>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-label">Primary Lane</div>
-                <div class="feature-name">Daily Production</div>
-                <div class="feature-desc">The workhorse. Scans your sources, finds 15&ndash;25 leads, expands the best into stories, fact-checks them, and rewrites them as clean, shareable articles. One button, four stages, done.</div>
+                <div class="feature-name">Run a repeatable workflow</div>
+                <div class="feature-desc">Chain the core prompt stages without manual copy-paste.</div>
             </div>
             <div class="feature-card">
-                <div class="feature-label">Investigation</div>
-                <div class="feature-name">Signal Intelligence</div>
-                <div class="feature-desc">Looks for the dog that didn't bark. Scans community sources for patterns, then runs every signal through a four-gate adversarial verification before promoting it to a story.</div>
+                <div class="feature-name">Keep sources organized</div>
+                <div class="feature-desc">Configure URLs, transcripts, and inputs in one place.</div>
             </div>
             <div class="feature-card">
-                <div class="feature-label">On Demand</div>
-                <div class="feature-name">Ad-Hoc Story</div>
-                <div class="feature-desc">Give it a topic &mdash; &ldquo;What's happening with the new development on Main Street?&rdquo; &mdash; and it does its own research, writes a complete story, and runs it through the fact-checker.</div>
+                <div class="feature-name">Export reviewable output</div>
+                <div class="feature-desc">Save drafts, notes, and supporting materials for further editing.</div>
+            </div>
+        </div>
+        <details>
+            <summary>Advanced modes</summary>
+            <ul class="advanced-modes-list">
+                <li>Daily monitoring workflow</li>
+                <li>Signal investigation workflow</li>
+                <li>Topic-based research workflow</li>
+                <li>Combined deep-dive workflow</li>
+                <li>Individual tool access</li>
+            </ul>
+        </details>
+    </div>
+</section>
+
+<section class="section" id="protections">
+    <div class="wide-container">
+        <h2>Workflow Protections</h2>
+        <p class="section-intro">The Toolkit is designed to reduce common AI reporting failures by forcing more explicit sourcing, counter-checking, and review steps. It does not guarantee correctness. It makes weak or unresolved work easier to spot before publication.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-name">Structured counter-checking</div>
+                <div class="feature-desc">A mandatory multi-gate protocol forces verification attempts across multiple sources within a defined timeframe. Contested claims can't advance without documented counter-checking.</div>
             </div>
             <div class="feature-card">
-                <div class="feature-label">Full Pipeline</div>
-                <div class="feature-name">Combined Production</div>
-                <div class="feature-desc">Runs Daily Production and Signal Intelligence back to back. The most thorough option for a weekly deep-dive into everything your local government is doing.</div>
+                <div class="feature-name">Primary-source grounding</div>
+                <div class="feature-desc">Every claim must trace to primary public records. Other outlets' coverage can tell you what to look for — it can never be your source.</div>
             </div>
             <div class="feature-card">
-                <div class="feature-label">Deep Dive</div>
-                <div class="feature-name">Deep Investigation</div>
-                <div class="feature-desc">Full pipeline plus standalone research. Every agent fires. Use this when you want to leave no stone unturned on a specific issue or time period.</div>
+                <div class="feature-name">Suppression and hold paths</div>
+                <div class="feature-desc">Every suppressed or held story gets a record: why it was held, what was missing, and what would reopen it. Nothing disappears silently.</div>
             </div>
             <div class="feature-card">
-                <div class="feature-label">Flexible</div>
-                <div class="feature-name">Single Prompt</div>
-                <div class="feature-desc">Run any of the nine agents individually. Useful for one-off tasks &mdash; checking your legal rights, verifying a specific claim, or grounding a story in primary sources.</div>
+                <div class="feature-name">Independent review step</div>
+                <div class="feature-desc">Every output must pass an independent review audit before it reaches you. No agent can self-certify its own output as ready.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-name">Shared source standards</div>
+                <div class="feature-desc">The entire workflow is built on consistent editorial standards. These standards are open, auditable, and the same across all deployment modes.</div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="compare">
     <div class="wide-container">
-        <h2>Built-In Safeguards</h2>
-        <p class="section-intro">AI-assisted civic reporting fails in specific, predictable ways. This system prevents each of them architecturally.</p>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-name">Adversarial Verification</div>
-                <div class="feature-desc">A mandatory four-gate protocol forces counter-narrative searches across 3+ platforms within a 90-day window. Contested claims can't advance without documented verification attempts.</div>
+        <h2>Choose Your Format</h2>
+        <p class="section-intro">Both versions run the same core editorial logic. Both require human review. Both depend on source quality and operator judgment.</p>
+        <div class="compare-cards">
+            <div class="compare-card">
+                <h3>Civic Transparency Toolkit</h3>
+                <ul>
+                    <li>Desktop app</li>
+                    <li>Guided workflow execution</li>
+                    <li>Source management and exports</li>
+                    <li>Best for repeated use</li>
+                </ul>
             </div>
-            <div class="feature-card">
-                <div class="feature-name">Anti-Plagiarism Architecture</div>
-                <div class="feature-desc">The Civic Grounding Protocol ensures every claim traces to primary public records. Other outlets' coverage can tell you what to look for &mdash; it can never be your source.</div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-name">Integrity Auditing</div>
-                <div class="feature-desc">Every story from any pipeline must pass an independent five-part audit before it reaches you. No agent can self-certify its own output as ready.</div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-name">Suppression Ledger</div>
-                <div class="feature-desc">Every killed story gets a record: why it was killed, what was missing, and what would reopen it. Nothing disappears silently.</div>
+            <div class="compare-card">
+                <h3>Civic Newsroom</h3>
+                <ul>
+                    <li>Prompt collection</li>
+                    <li>Manual prompt-by-prompt operation</li>
+                    <li>Easier to inspect and modify prompt behavior directly</li>
+                    <li>Best for experimentation and learning the method</li>
+                </ul>
             </div>
         </div>
+        <div class="compare-footer">
+            <h4>Shared across both versions:</h4>
+            <ul>
+                <li>Same core editorial logic</li>
+                <li>Same need for human review</li>
+                <li>Same dependence on source quality and operator judgment</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="limits">
+    <div class="wide-container">
+        <h2>Requirements and Limits</h2>
+        <ul class="requirements-list">
+            <li>Requires an LLM API key</li>
+            <li>Output quality depends on source quality</li>
+            <li>Human review required</li>
+            <li>Intended for civic transparency and research workflows</li>
+            <li>Not a substitute for independent verification on sensitive claims</li>
+        </ul>
     </div>
 </section>
 
 <section class="section">
     <div class="container">
-        <h2>Get Started in 5 Minutes</h2>
+        <h2>What this is not</h2>
+        <ul class="not-list">
+            <li>Not an autonomous newsroom</li>
+            <li>Not a replacement for reporting judgment</li>
+            <li>Not a guarantee that a draft is correct</li>
+            <li>Not legal advice</li>
+            <li>Not a substitute for reading original records on important claims</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section" id="setup">
+    <div class="container">
+        <h2>What Setup Involves</h2>
         <ol class="steps">
-            <li><strong>Download</strong> the latest release and unzip it, or clone the repo and run <code>python main.py</code></li>
-            <li><strong>Add your API key</strong> in Settings &mdash; get one free at <a href="https://console.anthropic.com">console.anthropic.com</a> (usage costs ~$0.10/run)</li>
-            <li><strong>Configure your city</strong> &mdash; name, state, and open records law</li>
-            <li><strong>Add sources</strong> &mdash; paste URLs for your city's council portal, news sites, school district, and community forums</li>
-            <li><strong>Pick a lane and press Run</strong> &mdash; the toolkit handles the rest</li>
+            <li>Download the app or run it from source.</li>
+            <li>Add an API key.</li>
+            <li>Enter your city or project settings.</li>
+            <li>Add a small starter list of sources.</li>
+            <li>Choose a workflow mode.</li>
+            <li>Review the generated output before sharing or publishing.</li>
         </ol>
+        <p style="margin-top: 1.75rem; color: var(--muted); font-size: 0.95rem;">Actual setup time depends on how quickly you gather sources and configure your workflow.</p>
         <div style="margin-top: 1.75rem;">
             <a href="https://github.com/scottconverse/civic-transparency-toolkit/releases" class="btn btn-primary">Download Latest Release</a>
         </div>
@@ -500,87 +784,24 @@
 </section>
 
 <section class="section">
-    <div class="container">
-        <h2>Two Ways to Use the System</h2>
-        <p class="section-intro">The Civic Transparency Toolkit is the desktop app. Civic Newsroom is the same pipeline as copy-paste prompts. Same editorial architecture, different delivery.</p>
-        <div class="compare-box">
-            <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>This App</th>
-                        <th>Prompt Collection</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Repo</strong></td>
-                        <td><a href="https://github.com/scottconverse/civic-transparency-toolkit">civic-transparency-toolkit</a></td>
-                        <td><a href="https://github.com/scottconverse/civic-newsroom">civic-newsroom</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>How it works</strong></td>
-                        <td>Desktop GUI &mdash; configure, click Run, export</td>
-                        <td>Copy prompts into Claude, ChatGPT, or Gemini</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Setup</strong></td>
-                        <td>Download &amp; run, or <code>python main.py</code></td>
-                        <td>Clone repo, open prompt files</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pipeline</strong></td>
-                        <td>Automated &mdash; stages chain together</td>
-                        <td>Manual &mdash; you paste output between stages</td>
-                    </tr>
-                    <tr>
-                        <td><strong>AI Provider</strong></td>
-                        <td>Claude API (requires API key)</td>
-                        <td>Any LLM (Claude, ChatGPT, Gemini)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cost</strong></td>
-                        <td>~$0.05&ndash;$0.25/run (API usage)</td>
-                        <td>Free with free-tier LLM access</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Best for</strong></td>
-                        <td>Regular daily/weekly production</td>
-                        <td>Trying it out, or occasional use</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<section class="section">
     <div class="wide-container">
-        <h2>Who This Is For</h2>
-        <div class="audience-grid">
-            <div class="audience-item">
-                <strong>Engaged Residents</strong>
-                <p>Want to understand what your city council is doing with public funds and how decisions affect your neighborhood.</p>
+        <h2>The App in Action</h2>
+        <div class="screenshots">
+            <div class="screenshot-item">
+                <img src="screenshots/dashboard.png" alt="Civic Transparency Toolkit main dashboard showing workflow selection and source configuration" loading="lazy">
+                <span class="screenshot-caption">Main dashboard</span>
             </div>
-            <div class="audience-item">
-                <strong>Transparency Advocates</strong>
-                <p>Believe public records should be genuinely accessible, not just technically available.</p>
+            <div class="screenshot-item">
+                <img src="screenshots/workflow-selection.png" alt="Individual prompt selection showing all nine workflow steps" loading="lazy">
+                <span class="screenshot-caption">Workflow selection</span>
             </div>
-            <div class="audience-item">
-                <strong>Civic Organizations</strong>
-                <p>Need structured analysis of local government decisions to inform community action.</p>
+            <div class="screenshot-item">
+                <img src="screenshots/settings.png" alt="Settings panel with API key, model selection, and output folder configuration" loading="lazy">
+                <span class="screenshot-caption">Settings</span>
             </div>
-            <div class="audience-item">
-                <strong>Newsletter Editors</strong>
-                <p>Run a neighborhood or community newsletter and need a steady stream of local civic stories.</p>
-            </div>
-            <div class="audience-item">
-                <strong>Community Groups</strong>
-                <p>Want to track public decisions that affect your members &mdash; zoning, budgets, permits, and policy changes.</p>
-            </div>
-            <div class="audience-item">
-                <strong>Anyone Who Cares</strong>
-                <p>You don't need a journalism degree. You need to care about your town.</p>
+            <div class="screenshot-item">
+                <img src="screenshots/source-config.png" alt="City configuration form with primary sources, URLs, and additional source management" loading="lazy">
+                <span class="screenshot-caption">Source configuration</span>
             </div>
         </div>
     </div>
@@ -594,6 +815,7 @@
             <a href="https://github.com/scottconverse/civic-transparency-toolkit">GitHub</a> &middot;
             <a href="https://github.com/scottconverse/civic-newsroom">Civic Newsroom (Prompt Version)</a>
         </p>
+        <p class="footer-trust">Open-source workflow for civic transparency. Use responsibly. Review sources before making public claims.</p>
         <p class="footer-license">MIT License &middot; Free to use, fork, adapt, and share</p>
     </div>
 </footer>
