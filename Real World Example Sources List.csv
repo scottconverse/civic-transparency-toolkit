@@ -1,0 +1,46 @@
+# EXAMPLE: Longmont, Colorado — Civic Source List
+# This is a real-world example showing how to set up sources for your city.
+# Copy this file, replace the Longmont sources with your own, then import.
+# Import via: Sidebar > Import Sources
+# Format: Name, URL, Type, Category
+#
+# city: Longmont
+# state: Colorado
+# state_open_records_law: CORA
+# city_clerk_contact: cityclerk@longmontcolorado.gov
+#
+# Type A (Official Record) = Government websites, agendas, school districts, transit
+# Type B (News) = Newspapers, TV stations, news websites
+# Type C (Community) = Reddit, Nextdoor, Facebook groups, blogs
+#
+# Government — City of Longmont
+City of Longmont Official Website, https://longmontcolorado.gov/, A, Government
+City of Longmont News & Alerts, https://longmontcolorado.gov/news/, A, Government
+Longmont PrimeGov Agenda Portal, https://longmont.primegov.com/, A, Government
+City of Longmont City Clerk, https://longmontcolorado.gov/city-clerk/, A, Government
+Longmont Planning & Development, https://longmontcolorado.gov/planning-and-development-services/, A, Government
+Longmont Water Department, https://longmontcolorado.gov/water/, A, Government
+Longmont Public Library, https://longmontcolorado.gov/library/, A, Government
+#
+# Government — Education
+St. Vrain Valley School District, https://www.svvsd.org, A, Education
+SVVSD Board Meetings, https://www.svvsd.org/about/board-of-education/board-meetings/, A, Education
+#
+# Government — County / Regional / State
+Boulder County Government, https://bouldercounty.gov/, A, Government
+RTD Regional Transportation District, https://www.rtd-denver.com/, A, Government
+Colorado State Government Portal, https://co.colorado.gov/, A, Government
+#
+# Journalism
+Longmont Times-Call, https://www.timescall.com, B, Journalism
+Longmont Times-Call Local News, https://www.timescall.com/news/, B, Journalism
+Longmont Leader, https://www.longmontleader.com/, B, Journalism
+Longmont Leader Local News, https://www.longmontleader.com/local-news, B, Journalism
+Longmont Public Media, https://longmontpublicmedia.org/, B, Community Media
+#
+# YouTube
+City of Longmont YouTube, https://www.youtube.com/@cityoflongmont, A, YouTube
+Longmont Public Media YouTube, https://www.youtube.com/@LongmontPublicMedia, A, YouTube
+#
+# Community
+r/Longmont Subreddit, https://www.reddit.com/r/Longmont/, C, Community

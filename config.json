@@ -1,0 +1,39 @@
+{
+  "api_key": "",
+  "model": "claude-haiku-4-5-20251001",
+  "research_model": "",
+  "city_name": "",
+  "state": "",
+  "state_open_records_law": "",
+  "city_clerk_contact": "",
+  "sources": {
+    "city_agenda_portal_url": "",
+    "city_news_url": "",
+    "school_district_name": "",
+    "school_district_url": "",
+    "transit_agency_name": "",
+    "transit_agency_url": "",
+    "county_name": "",
+    "county_gov_url": "",
+    "state_gov_url": "",
+    "local_media_outlet": "",
+    "local_media_url": "",
+    "youtube_channel_url": ""
+  },
+  "meeting_schedule": {
+    "council_day": "",
+    "council_time": "",
+    "council_location": "",
+    "school_board_day": "",
+    "school_board_time": "",
+    "county_commissioners_day": "",
+    "county_commissioners_time": "",
+    "planning_commission_day": "",
+    "planning_commission_time": ""
+  },
+  "additional_sources": [],
+  "last_lane": "daily_production",
+  "step_by_step": false,
+  "output_directory": "",
+  "theme": "light"
+}
