@@ -2,6 +2,12 @@
 
 A free, open-source desktop app that helps you keep up with what your local government is doing — and turns it into stories you can actually share with your neighbors.
 
+---
+
+> **IMPORTANT DISCLAIMER:** AI-generated content must be independently verified before publication. This tool does NOT perform journalistic fact-checking. AI can and does fabricate facts, misattribute quotes, and produce flawed analysis. Publishing unverified AI output may constitute defamation or spread misinformation. This is not a substitute for professional journalism. You are solely responsible for everything you publish. See the [Terms of Service](docs/terms.html) for complete legal terms.
+
+---
+
 You give it a list of websites to watch (city council agendas, school board sites, local news, etc.), and it reads through them every day, finds the stories that matter to your community, and writes them up in plain English. You can paste those stories into a neighborhood newsletter, email them to your council member, or post them in your local Facebook group.
 
 **This is a community tool, not a newspaper.** It helps regular people stay informed and engaged in civic life.
