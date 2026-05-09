@@ -1,6 +1,18 @@
 # Civic Transparency Toolkit
 
-A free, open-source desktop app that helps you keep up with what your local government is doing — and turns it into stories you can actually share with your neighbors.
+> **A desktop app that turns city hall's public records into community news**
+
+For residents, HOA boards, neighborhood newsletters, and anyone who needs to know what's happening — no journalism background needed. Uses AI to aggregate, write, and check civic stories so your community stays informed.
+
+---
+
+## Three ways to use the civic editorial system
+
+| | What it is | Best for |
+|---|---|---|
+| **[civic-newsroom](https://github.com/scottconverse/civic-newsroom)** | Nine editorial prompts you paste into any AI. No software, no setup. Built to newspaper standards. | Journalists, researchers, and anyone who wants newspaper-grade civic coverage from their browser |
+| **civic-transparency-toolkit** — you are here | Desktop app that runs the pipeline automatically | Residents, HOA boards, neighborhood newsletters, and community groups who want to know what's happening at city hall |
+| **[civic-scanner](https://github.com/scottconverse/civic-scanner)** | Claude Code workflow with structured reports and hard editorial gates | Newsroom operators and power users who need structured intelligence reports and managing editor review |
 
 ---
 
@@ -11,8 +23,6 @@ A free, open-source desktop app that helps you keep up with what your local gove
 You give it a list of websites to watch (city council agendas, school board sites, local news, etc.), and it reads through them every day, finds the stories that matter to your community, and writes them up in plain English. You can paste those stories into a neighborhood newsletter, email them to your council member, or post them in your local Facebook group.
 
 **This is a community tool, not a newspaper.** It helps regular people stay informed and engaged in civic life.
-
-> **Looking for the prompt-only version?** If you'd rather copy-paste prompts into Claude, ChatGPT, or Gemini without installing anything, see the [Civic Newsroom](https://github.com/scottconverse/civic-newsroom) repo — the same nine-agent pipeline, no coding required.
 
 ---
 
